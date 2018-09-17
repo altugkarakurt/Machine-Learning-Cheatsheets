@@ -1,9 +1,9 @@
 <center><h1>Data Preprocessing</h1></center>
 
-##Imputation:
+## Imputation:
 Handling datapoints with missing columns.
 
-Related libraries: [`sklearn.preprocessing.Imputer`](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing) [`pandas.DataFrame.fillna`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html)
+[`sklearn.preprocessing.Imputer`](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing) [`pandas.DataFrame.fillna`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html)
 
 - **Listwise (Complete Case) Deletion:** Remove the rows that have missing columns.
   - Might introduce bias if there is an underlying pattern to the entries with missing values.
@@ -27,8 +27,11 @@ Related libraries: [`sklearn.preprocessing.Imputer`](http://scikit-learn.org/sta
   - Since the regression places the point perfectly fits the regression line, implying a correlation of 1 between the predictors and the missing outcome variable. This leads to overestimating the correlations.
   - One idea to account for this fabricated correlation is to use Stochastic Regression and add the average regression variance to introduce some error/noise.
 
+## Encoding Categorical Data
+- **One Hot Encoding:** Enumerating an n-categorical feature as a binary n-long vector. For each row, only one entry of this vector would be 1, at the index corresponding to the category it falls under. This approach transforms one categorical feature to n binary features.
+
 ## Standardization
 
 ## Polynomial Features
 
-## Encoding Categorical Data
+## Splitting Data into Test and Training Sets
