@@ -27,6 +27,10 @@ Handling datapoints with missing columns.
   - Since the regression places the point perfectly fits the regression line, implying a correlation of 1 between the predictors and the missing outcome variable. This leads to overestimating the correlations.
   - One idea to account for this fabricated correlation is to use Stochastic Regression and add the average regression variance to introduce some error/noise.
 
+- **'Missing' Category:** In the case of categorical features, we can generate a new category 'Missing' and impute this values to the missing entries. If there is a pattern or reason for these values to be missing, this category captures this phenomenon by explicitly marking them as missing.
+
+- **Surrogate Split:** In the case of decision trees, if we know there are at most d features missing for a row, instead of using one split at every fork, we can generate a sorted list of d splits that we can fall back to in case of missing values. 
+
 ## Encoding Categorical Data
 - **One Hot Encoding:** Enumerating an n-categorical feature as a binary n-long vector. For each row, only one entry of this vector would be 1, at the index corresponding to the category it falls under. This approach transforms one categorical feature to n binary features.
 
