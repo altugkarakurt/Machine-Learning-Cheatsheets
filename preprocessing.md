@@ -3,7 +3,7 @@
 ## Imputation:
 Handling datapoints with missing columns.
 
-[`sklearn.preprocessing.Imputer`](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing) [`pandas.DataFrame.fillna`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html)
+[`sklearn.preprocessing.SimpleImputer`](http://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html#sklearn.impute.SimpleImputer) [`pandas.DataFrame.fillna`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html)
 
 - **Listwise (Complete Case) Deletion:** Remove the rows that have missing columns.
   - Might introduce bias if there is an underlying pattern to the entries with missing values.
@@ -32,10 +32,12 @@ Handling datapoints with missing columns.
 - **Surrogate Split:** In the case of decision trees, if we know there are at most d features missing for a row, instead of using one split at every fork, we can generate a sorted list of d splits that we can fall back to in case of missing values. 
 
 ## Encoding Categorical Data
-- **One Hot Encoding:** Enumerating an n-categorical feature as a binary n-long vector. For each row, only one entry of this vector would be 1, at the index corresponding to the category it falls under. This approach transforms one categorical feature to n binary features.
+The main concern with mapping categories to numbers is the common implicit assumption in many models that the numerical values are algebraic. So, different numerical mappings would yield different results as the ordering of the target values might change.
+
+- **One Hot Encoding:** Enumerating an n-categorical feature as a binary n-long vector. For each row, only one entry of this vector would be 1, at the index corresponding to the category it falls under. This approach transforms one categorical feature to n binary features.<br>[`sklearn.features_extraction.DictVectorizer`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.DictVectorizer.html)
 
 ## Standardization
+The main goal is to have zero mean and unit (order) variance in all features to prevent some features dominate the others.
+[`sklearn.preprocessing.scale`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.scale.html#sklearn.preprocessing.scale)
 
 ## Polynomial Features
-
-## Splitting Data into Test and Training Sets
